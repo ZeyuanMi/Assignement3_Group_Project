@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import pool from '../../../lib/db';
 
+//Administrators manage flights
 //Inquire all flights
 export async function GET() {
   const [flights] = await pool.query('SELECT * FROM flights');

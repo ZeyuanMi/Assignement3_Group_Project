@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import pool from '../../../../lib/db';
-
+//Cancel the order
 export async function DELETE(req, { params }) {
   try {
     const { id } = params;

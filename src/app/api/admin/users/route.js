@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import pool from '../../../../lib/db';
-
+//Administrators view all users
 export async function GET() {
   try {
     const [users] = await pool.query('SELECT id, name, email, role, created_at FROM users');
