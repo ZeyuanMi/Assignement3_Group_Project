@@ -303,6 +303,9 @@ export default function LoginPage() {
 
             </form>
 
+            <button onClick={() => router.push("/")}>
+                Home
+            </button>
         </div>
 
     );
