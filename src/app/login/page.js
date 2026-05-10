@@ -5,26 +5,33 @@ import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
     // save form data
+    const [nameError, setNameError] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
     const router = useRouter();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     // sticky form: read data from localStorage
     useEffect(() => {
         const savedemail = localStorage.getItem("email");
-        const savedrouter = localStorage.getItem("router");
         const savedname = localStorage.getItem("name");
+        const savedpassword = localStorage.getItem("password");
 
-        if (savedemail !== null) setemail(savedemail);
-        if (savedrouter !== null) setrouter(savedrouter);
-        if (savedname !== null) setname(savedname);
+        if (savedemail !== null) setEmail(savedemail);
+        if (savedname !== null) setName(savedname);
+        if (savedpassword !== null) setPassword(savedpassword);
 }, []);
 
     // sticky form: save data to localStorage
     useEffect(() => {
         localStorage.setItem("email", email);
-        localStorage.setItem("router", router);
-        localStorage.setItem("name", name);}, [email,router,name]);
+        localStorage.setItem("name", name);
+        localStorage.setItem("password", password);
+        },
+
+        [email,router,password,name]);
 
     function goToHome() {
         window.location.href = "/";
@@ -46,6 +53,24 @@ export default function LoginPage() {
             setNameError("The name should be 2-30 characters long and can only contain English letters");
         } else {
             setNameError("");
+        }
+    };
+
+    //check name(Use regular expressions,2-15 letters as a limit)
+    const isValidPassword = (password) => {
+        const passwordRegex = /^.{6,20}$/;
+        return passwordRegex.test(password);
+    }
+
+    //Real time name verification (automatically checked upon input)
+    const handlePasswordChange = (e) => {
+        const newPassword = e.target.value;
+        setPassword(newPassword);
+
+        if (newPassword && !isValidPassword(newPassword)) {
+            setPasswordError("The password length must be within 6-20 strings");
+        } else {
+            setPasswordError("");
         }
     };
 
@@ -86,6 +111,15 @@ export default function LoginPage() {
             return;
         }
 
+        if (!isValidPassword(password)) {
+
+            setPasswordError(
+                "Password format is wrong."
+            );
+
+            return;
+        }
+
         //Verified successful, execute login logic
         console.log("login information:", { name, email });
     };
@@ -111,6 +145,8 @@ export default function LoginPage() {
             >
                 LOGIN(Please enter your correct information)
             </h1>
+
+
 
             </div>
             );
