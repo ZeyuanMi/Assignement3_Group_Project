@@ -12,17 +12,16 @@ export default function Home() {
             marginRight: "auto",}}
                 />
 
-        <h1 style={{fontWeight: "bold", fontSize: "32px" }}>Flight Booking</h1>
+        <div style={{ backgroundColor: "#003580", padding: "12px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                        <span style={{ color: "white", fontSize: "20px", fontWeight: "bold" }}>
+                            Flight Booking System
+                        </span>
+                        <div>
+                        <a href="/login" style={{ color: "white", marginRight: "16px", textDecoration: "none", fontSize: "14px" }}>Login</a>
+                                            <a href="/register" style={{ color: "white", textDecoration: "none", fontSize: "14px" }}>Register</a>
+                                        </div>
+                                    </div>
 
-        <div style={{ marginTop: "50px" }}>
-            <a href="/login" style={{ marginRight:"120px",  fontSize: "18px", padding: "30px 65px", background: "red", color: "white", textDecoration: "none", borderRadius: "5px",fontFamily: "Georgia" }}>
-                Login
-            </a>
-
-            <a href="/register" style={{ marginLeft:"120px",  fontSize: "18px", padding: "30px 65px", background: "red", color: "white", textDecoration: "none", borderRadius: "5px",fontFamily: "Georgia" }}>
-                Register
-            </a>
-        </div>
 
         <div style={{ marginTop: "100px" }}>
             <a href="/help" style={{   fontSize: "18px", padding: "30px 65px", background: "blue", color: "white", textDecoration: "none", borderRadius: "5px",fontFamily: "Georgia" }}>
