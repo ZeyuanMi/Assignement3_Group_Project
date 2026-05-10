@@ -66,6 +66,7 @@ export default function LoginPage() {
         }
     };
 
+
     // Verify upon submission
     const handleSubmit = (e) => {
         e.preventDefault();
