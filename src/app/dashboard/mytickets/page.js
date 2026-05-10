@@ -3,36 +3,25 @@
 import { useEffect, useState }
     from "react";
 
-export default function TicketsPage() {
+export default function ProfilePage() {
 
-    const [tickets, setTickets]
-        = useState([]);
+    const [user, setUser]
+        = useState(null);
 
     useEffect(() => {
 
-        loadTickets();
+        const userData =
+            sessionStorage.getItem("user");
 
-    }, []);
+        if (userData) {
 
-    async function loadTickets() {
-
-        const user =
-            JSON.parse(
-                sessionStorage.getItem("user")
+            setUser(
+                JSON.parse(userData)
             );
 
-        const response = await fetch(
+        }
 
-            `/api/bookings?userId=${user.id}`
-
-        );
-
-        const data =
-            await response.json();
-
-        setTickets(data);
-
-    }
+    }, []);
 
     return (
 
@@ -44,38 +33,43 @@ export default function TicketsPage() {
         >
 
             <h1>
-                MY TICKETS
+                PROFILE
             </h1>
 
             {
 
-                tickets.map((ticket) => (
+                user && (
 
                     <div
-                        key={ticket.id}
                         style={{
                             border: "2px solid black",
                             padding: "20px",
-                            marginBottom: "20px",
                             backgroundColor: "white",
+                            marginTop: "20px",
                         }}
                     >
 
                         <p>
-                            Booking ID:
+                            Name:
                             {" "}
-                            {ticket.id}
+                            {user.name}
                         </p>
 
                         <p>
-                            Flight ID:
+                            Email:
                             {" "}
-                            {ticket.flight_id}
+                            {user.email}
+                        </p>
+
+                        <p>
+                            Role:
+                            {" "}
+                            {user.role}
                         </p>
 
                     </div>
 
-                ))
+                )
 
             }
 

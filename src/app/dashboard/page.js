@@ -1,6 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter }
+    from "next/navigation";
 
 export default function DashboardPage() {
 
@@ -9,9 +10,7 @@ export default function DashboardPage() {
     // Logout
     function handleLogout() {
 
-        localStorage.removeItem("name");
-        localStorage.removeItem("email");
-        localStorage.removeItem("password");
+        sessionStorage.removeItem("user");
 
         alert("Logout success");
 
@@ -30,7 +29,6 @@ export default function DashboardPage() {
             }}
         >
 
-            {/* Title */}
             <h1
                 style={{
                     textAlign: "center",
@@ -43,7 +41,6 @@ export default function DashboardPage() {
                 FLIGHT BOOKING DASHBOARD
             </h1>
 
-            {/* Main box */}
             <div
                 style={{
                     maxWidth: "900px",
@@ -54,17 +51,6 @@ export default function DashboardPage() {
                 }}
             >
 
-                {/* Welcome */}
-                <h2
-                    style={{
-                        marginBottom: "30px",
-                        fontSize: "28px",
-                    }}
-                >
-                    Welcome User
-                </h2>
-
-                {/* Buttons area */}
                 <div
                     style={{
                         display: "flex",
@@ -76,7 +62,9 @@ export default function DashboardPage() {
 
                     {/* Book Flight */}
                     <button
-                        onClick={() => router.push("/dashboard/bookings")}
+                        onClick={() =>
+                            router.push("/dashboard/bookings")
+                        }
                         style={{
                             width: "220px",
                             height: "120px",
@@ -92,7 +80,9 @@ export default function DashboardPage() {
 
                     {/* My Tickets */}
                     <button
-                        onClick={() => router.push("/dashboard/myticket")}
+                        onClick={() =>
+                            router.push("/dashboard/flights")
+                        }
                         style={{
                             width: "220px",
                             height: "120px",
@@ -108,7 +98,9 @@ export default function DashboardPage() {
 
                     {/* Profile */}
                     <button
-                        onClick={() => router.push("/dashboard/flights")}
+                        onClick={() =>
+                            router.push("/dashboard/mytickets")
+                        }
                         style={{
                             width: "220px",
                             height: "120px",
@@ -124,7 +116,9 @@ export default function DashboardPage() {
 
                     {/* Help */}
                     <button
-                        onClick={() => router.push("/help")}
+                        onClick={() =>
+                            router.push("/help")
+                        }
                         style={{
                             width: "220px",
                             height: "120px",
@@ -140,7 +134,6 @@ export default function DashboardPage() {
 
                 </div>
 
-                {/* Logout */}
                 <div
                     style={{
                         marginTop: "60px",
@@ -167,5 +160,7 @@ export default function DashboardPage() {
             </div>
 
         </div>
+
     );
+
 }

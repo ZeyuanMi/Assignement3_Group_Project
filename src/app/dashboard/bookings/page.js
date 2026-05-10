@@ -2,7 +2,6 @@
 
 export default function BookPage() {
 
-    // Fake flight data
     const flights = [
 
         {
@@ -28,8 +27,12 @@ export default function BookPage() {
 
     ];
 
-    // Booking
     async function handleBooking(flightId) {
+
+        const user =
+            JSON.parse(
+                sessionStorage.getItem("user")
+            );
 
         const response = await fetch(
 
@@ -45,7 +48,7 @@ export default function BookPage() {
 
                 body: JSON.stringify({
 
-                    user_id: 1,
+                    user_id: user.id,
                     flight_id: flightId,
 
                 }),
@@ -53,7 +56,8 @@ export default function BookPage() {
 
         );
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
         alert(data.msg);
 
@@ -129,16 +133,15 @@ export default function BookPage() {
                 href="/dashboard"
                 style={{
                     padding: "10px 20px",
-                    background: "#3b82f6",
+                    backgroundColor: "blue",
                     color: "white",
                     textDecoration: "none",
                     borderRadius: "5px",
-                    display: "inline-block"
+                    display: "inline-block",
                 }}
             >
-                Back to dashboard
+                Back
             </a>
-
         </div>
 
     );

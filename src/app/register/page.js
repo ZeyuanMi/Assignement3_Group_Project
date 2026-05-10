@@ -226,6 +226,21 @@ export default function RegisterPage() {
 
         alert(data.msg);
 
+// Save logged in user
+        sessionStorage.setItem(
+
+            "user",
+
+            JSON.stringify(data.user)
+
+        );
+
+// Login success
+        if (response.ok) {
+
+            router.push("/dashboard");
+
+        }
         // Register success
         if (response.ok) {
 

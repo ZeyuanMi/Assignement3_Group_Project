@@ -1,126 +1,167 @@
 "use client";
 
-import {useEffect, useState} from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useState }
+    from "react";
+
+import { useRouter }
+    from "next/navigation";
 
 export default function LoginPage() {
-    // save form data
-    const [nameError, setNameError] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
+
     const router = useRouter();
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
 
-    // sticky form: read data from localStorage
+    // States
+    const [email, setEmail]
+        = useState("");
+
+    const [password, setPassword]
+        = useState("");
+
+    // Errors
+    const [emailError, setEmailError]
+        = useState("");
+
+    const [passwordError, setPasswordError]
+        = useState("");
+
+    // Load localStorage
     useEffect(() => {
-        const savedemail = localStorage.getItem("email");
-        const savedname = localStorage.getItem("name");
-        const savedpassword = localStorage.getItem("password");
 
-        if (savedemail !== null) setEmail(savedemail);
-        if (savedname !== null) setName(savedname);
-        if (savedpassword !== null) setPassword(savedpassword);
+        const savedEmail =
+            localStorage.getItem("email");
+
+        const savedPassword =
+            localStorage.getItem("password");
+
+        if (savedEmail !== null) {
+
+            setEmail(savedEmail);
+
+        }
+
+        if (savedPassword !== null) {
+
+            setPassword(savedPassword);
+
+        }
+
     }, []);
 
-    // sticky form: save data to localStorage
+    // Save localStorage
     useEffect(() => {
-            localStorage.setItem("email", email);
-            localStorage.setItem("name", name);
-            localStorage.setItem("password", password);
-        },
 
-        [email,router,password,name]);
+        localStorage.setItem(
+            "email",
+            email
+        );
 
-    function goToHome() {
-        window.location.href = "/";
+        localStorage.setItem(
+            "password",
+            password
+        );
 
-    }
+    }, [email, password]);
 
-    //check name(Use regular expressions,2-15 letters as a limit)
-    const isValidName = (name) => {
-        const nameRegex = /^[a-zA-Z\s]{2,15}$/;
-        return nameRegex.test(name);
-    }
-
-    //Real time name verification (automatically checked upon input)
-    const handleNameChange = (e) => {
-        const newName = e.target.value;
-        setName(newName);
-
-        if (newName && !isValidName(newName)) {
-            setNameError("The name should be 2-30 characters long and can only contain English letters");
-        } else {
-            setNameError("");
-        }
-    };
-
-    //check name(Use regular expressions,2-15 letters as a limit)
-    const isValidPassword = (password) => {
-        const passwordRegex = /^.{6,20}$/;
-        return passwordRegex.test(password);
-    }
-
-    //Real time name verification (automatically checked upon input)
-    const handlePasswordChange = (e) => {
-        const newPassword = e.target.value;
-        setPassword(newPassword);
-
-        if (newPassword && !isValidPassword(newPassword)) {
-            setPasswordError("The password length must be within 6-20 strings");
-        } else {
-            setPasswordError("");
-        }
-    };
-
-    //Email verification.
+    // Email validation
     function isValidEmail(email) {
-        return email.includes("@") && email.includes(".");
+
+        return (
+            email.includes("@")
+            &&
+            email.includes(".")
+        );
+
     }
 
-    //Real time email verification (automatically checked upon input)
-    const handleEmailChange = (e) => {
-        const newEmail = e.target.value;
+    // Password validation
+    function isValidPassword(password) {
+
+        const passwordRegex =
+            /^.{6,20}$/;
+
+        return passwordRegex.test(password);
+
+    }
+
+    // Email change
+    function handleEmailChange(e) {
+
+        const newEmail =
+            e.target.value;
+
         setEmail(newEmail);
 
-        if (newEmail && !isValidEmail(newEmail)) {
-            setEmailError("The email needs to include '@' and '.'");
+        if (
+            newEmail
+            &&
+            !isValidEmail(newEmail)
+        ) {
+
+            setEmailError(
+                "Invalid email format."
+            );
+
         } else {
+
             setEmailError("");
-        }
-    };
 
-
-    // Verify upon submission
-    const handleSubmit =  async (e) => {
-        e.preventDefault();
-
-        if (!name.trim()) {
-            setNameError("Input your name,please.");
-            return;
         }
 
-        if (!isValidName(name)) {
-            setNameError("Name format is wrong.");
-            return;
-        }
+    }
 
-        if (!email.includes("@")) {
-            alert("Please enter a valid email address");
-            return;
-        }
+    // Password change
+    function handlePasswordChange(e) {
 
-        if (!isValidPassword(password)) {
+        const newPassword =
+            e.target.value;
+
+        setPassword(newPassword);
+
+        if (
+            newPassword
+            &&
+            !isValidPassword(newPassword)
+        ) {
 
             setPasswordError(
-                "Password format is wrong."
+                "Password must be 6-20 characters."
+            );
+
+        } else {
+
+            setPasswordError("");
+
+        }
+
+    }
+
+    // Login submit
+    async function handleSubmit(e) {
+
+        e.preventDefault();
+
+        // Invalid email
+        if (!isValidEmail(email)) {
+
+            setEmailError(
+                "Invalid email."
             );
 
             return;
+
         }
 
-        //Verified successful, execute login logic
+        // Invalid password
+        if (!isValidPassword(password)) {
+
+            setPasswordError(
+                "Invalid password."
+            );
+
+            return;
+
+        }
+
         // Login request
         const response = await fetch(
 
@@ -141,142 +182,90 @@ export default function LoginPage() {
 
                 }),
             }
+
         );
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
         alert(data.msg);
 
-// Login success
+        // SAVE USER
+        sessionStorage.setItem(
+
+            "user",
+
+            JSON.stringify(data.user)
+
+        );
+
+        // Success
         if (response.ok) {
 
             router.push("/dashboard");
 
         }
-    };
+
+    }
 
     return (
+
         <div
             style={{
                 maxWidth: "500px",
                 margin: "40px auto",
                 padding: "20px",
-                border: "1px solid #000",
-                backgroundColor: "#fff",
+                border: "1px solid black",
+                backgroundColor: "white",
                 fontFamily: "monospace",
-            }}>
-            <h1
-                style={{
-                    fontSize: "18px",
-                    fontWeight: "bold",
-                    marginBottom: "24px",
-                    borderBottom: "1px solid #000",
-                    paddingBottom: "8px",
-                }}
+            }}
+        >
 
-            >
-                LOGIN(Please enter your correct information)
+            <h1>
+                LOGIN
             </h1>
 
             <form onSubmit={handleSubmit}>
-                {/* Name */}
-                <div style={{ marginBottom: "16px" }}>
-                    <label
-                        style={{
-                            display: "block",
-                            fontSize: "12px",
-                            fontWeight: "bold",
-                            marginBottom: "4px",
-                        }}
-                    >
-                        Name
-                    </label>
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={handleNameChange}
-                        style={{
-                            width: "100%",
-                            padding: "6px 8px",
-                            fontSize: "12px",
-                            border: "1px solid #000",
-                            borderRadius: "0",
-                            boxSizing: "border-box",
-                        }}
-                    />
-                    {nameError && (
-                        <div style={{ color: "red", fontSize: "10px", marginTop: "4px" }}>
-                            {nameError}
-                        </div>
-                    )}
-                    <div style={{ fontSize: "10px", color: "#666", marginTop: "4px" }}>
-                        Fill in this field with 2-15 strings that are not empty.
-                    </div>
-                </div>
-
-
-
-
 
                 {/* Email */}
-                <div style={{ marginBottom: "16px" }}>
+                <div
+                    style={{
+                        marginBottom: "20px",
+                    }}
+                >
 
-                    <label
-                        style={{
-                            display: "block",
-                            fontSize: "12px",
-                            fontWeight: "bold",
-                            marginBottom: "4px",
-                        }}
-                    >
+                    <label>
                         Email
                     </label>
 
                     <input
-                        type="email"
+                        type="text"
                         value={email}
                         onChange={handleEmailChange}
-                        placeholder="Enter your email"
                         style={{
                             width: "100%",
-                            padding: "6px 8px",
-                            fontSize: "12px",
-                            border: "1px solid #000",
-                            boxSizing: "border-box",
+                            padding: "10px",
                         }}
                     />
 
-                    {emailError && (
-
-                        <div
-                            style={{
-                                color: "red",
-                                fontSize: "10px",
-                                marginTop: "4px"
-                            }}
-                        >
-                            {emailError}
-                        </div>
-
-                    )}
+                    <div
+                        style={{
+                            color: "red",
+                        }}
+                    >
+                        {emailError}
+                    </div>
 
                 </div>
 
-
-
-
-
                 {/* Password */}
-                <div style={{ marginBottom: "16px" }}>
+                <div
+                    style={{
+                        marginBottom: "20px",
+                    }}
+                >
 
-                    <label
-                        style={{
-                            display: "block",
-                            fontSize: "12px",
-                            fontWeight: "bold",
-                            marginBottom: "4px",
-                        }}
-                    >
+                    <label>
                         Password
                     </label>
 
@@ -284,29 +273,19 @@ export default function LoginPage() {
                         type="password"
                         value={password}
                         onChange={handlePasswordChange}
-                        placeholder="Enter password"
                         style={{
                             width: "100%",
-                            padding: "6px 8px",
-                            fontSize: "12px",
-                            border: "1px solid #000",
-                            boxSizing: "border-box",
+                            padding: "10px",
                         }}
                     />
 
-                    {passwordError && (
-
-                        <div
-                            style={{
-                                color: "red",
-                                fontSize: "10px",
-                                marginTop: "4px"
-                            }}
-                        >
-                            {passwordError}
-                        </div>
-
-                    )}
+                    <div
+                        style={{
+                            color: "red",
+                        }}
+                    >
+                        {passwordError}
+                    </div>
 
                 </div>
 
@@ -317,17 +296,15 @@ export default function LoginPage() {
                         backgroundColor: "blue",
                         color: "white",
                         border: "none",
-                        cursor: "pointer",
                     }}
                 >
                     Login
                 </button>
+
             </form>
 
-            <button onClick={() => router.push("/")}>
-                Home
-            </button>
-
         </div>
+
     );
+
 }

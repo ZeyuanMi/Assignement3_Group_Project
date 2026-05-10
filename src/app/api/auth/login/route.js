@@ -50,6 +50,7 @@ export async function POST(req) {
 
                 password,
                 user.password
+
             );
 
         // Wrong password
@@ -69,11 +70,22 @@ export async function POST(req) {
 
         }
 
-        // Login success
+        // LOGIN SUCCESS
         return NextResponse.json(
 
             {
-                msg: "Login success"
+
+                msg: "Login success",
+
+                user: {
+
+                    id: user.id,
+                    name: user.name,
+                    email: user.email,
+                    role: user.role,
+
+                }
+
             },
 
             {
