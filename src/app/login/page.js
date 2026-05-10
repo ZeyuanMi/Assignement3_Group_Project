@@ -28,6 +28,7 @@ export default function LoginPage() {
 
     function goToHome() {
         window.location.href = "/";
+
     }
 
     //check name
