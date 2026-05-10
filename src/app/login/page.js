@@ -96,6 +96,7 @@ export default function LoginPage() {
     const handleSubmit =  async (e) => {
         e.preventDefault();
 
+
         if (!name.trim()) {
             setNameError("Input your name,please.");
             return;
