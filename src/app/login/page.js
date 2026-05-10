@@ -142,6 +142,7 @@ export default function LoginPage() {
                     borderBottom: "1px solid #000",
                     paddingBottom: "8px",
                 }}
+
             >
                 LOGIN(Please enter your correct information)
             </h1>
