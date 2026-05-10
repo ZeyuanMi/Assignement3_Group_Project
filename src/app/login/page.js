@@ -54,4 +54,39 @@ export default function LoginPage() {
         return email.includes("@") && email.includes(".");
     }
 
+    //Real time email verification (automatically checked upon input)
+    const handleEmailChange = (e) => {
+        const newEmail = e.target.value;
+        setEmail(newEmail);
+
+        if (newEmail && !isValidEmail(newEmail)) {
+            setEmailError("The email needs to include '@' and '.'");
+        } else {
+            setEmailError("");
+        }
+    };
+
+    // Verify upon submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!name.trim()) {
+            setNameError("Input your name,please.");
+            return;
+        }
+
+        if (!isValidName(name)) {
+            setNameError("Name format is wrong.");
+            return;
+        }
+
+        if (!email.includes("@")) {
+            alert("Please enter a valid email address");
+            return;
+        }
+
+        //Verified successful, execute login logic
+        console.log("login information:", { name, email });
+    };
+
 }
