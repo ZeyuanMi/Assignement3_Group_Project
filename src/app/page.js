@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
     return(
-    <div style={{ textAlign: "center", marginTop: "1px",border: "20px solid gray",backgroundColor: "white",minHeight: "130vh"}}>
+    <div style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#f4f4f4", minHeight: "100vh"}}>
 
         <img src="https://images.pexels.com/photos/33860674/pexels-photo-33860674.jpeg" alt="plane"
              style={{
