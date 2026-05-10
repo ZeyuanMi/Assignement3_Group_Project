@@ -4,15 +4,9 @@ export default function Home() {
     return(
     <div style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#f4f4f4", minHeight: "100vh"}}>
 
-        <img src="https://images.pexels.com/photos/33860674/pexels-photo-33860674.jpeg" alt="plane"
-             style={{
-            width: "400px",
-            height: "300px",
-            marginLeft: "auto",
-            marginRight: "auto",}}
-                />
 
         <div style={{ backgroundColor: "#003580", padding: "12px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+
                         <span style={{ color: "white", fontSize: "20px", fontWeight: "bold" }}>
                             Flight Booking System
                         </span>
@@ -23,11 +17,28 @@ export default function Home() {
                                     </div>
 
 
-        <div style={{ marginTop: "100px" }}>
-            <a href="/help" style={{   fontSize: "18px", padding: "30px 65px", background: "blue", color: "white", textDecoration: "none", borderRadius: "5px",fontFamily: "Georgia" }}>
-                Help
-            </a>
-        </div>
+{/* Banner */}
+            <div style={{ backgroundColor: "#0057b8", padding: "60px 24px", textAlign: "center" }}>
+                <h1 style={{ color: "white", fontSize: "32px", marginBottom: "12px" }}>
+                    Welcome to Flight Booking
+                </h1>
+                <p style={{ color: "#cce0ff", fontSize: "16px", marginBottom: "32px" }}>
+                    Register or login to book your flights.
+                </p>
+                <a href="/register" style={{ backgroundColor: "white", color: "#0057b8", padding: "10px 28px", borderRadius: "4px", textDecoration: "none", fontWeight: "bold", marginRight: "12px" }}>
+                    Register
+
+                </a>
+                <a href="/login" style={{ backgroundColor: "transparent", color: "white", padding: "10px 28px", borderRadius: "4px", textDecoration: "none", fontWeight: "bold", border: "1px solid white" }}>
+                    Login
+                </a>
+
+                <a href="/help" style={{ marginLeft:"20px",backgroundColor: "transparent", color: "white", padding: "10px 28px", borderRadius: "4px", textDecoration: "none", fontWeight: "bold", border: "1px solid white" }}>
+                                    Help
+                                </a>
+
+            </div>
+
 
     </div>
 );
