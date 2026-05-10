@@ -31,5 +31,27 @@ export default function LoginPage() {
 
     }
 
-    //check name
-    function
+    //check name(Use regular expressions,2-15 letters as a limit)
+    const isValidName = (name) => {
+        const nameRegex = /^[a-zA-Z\s]{2,15}$/;
+        return nameRegex.test(name);
+    }
+
+    //Real time name verification (automatically checked upon input)
+    const handleNameChange = (e) => {
+        const newName = e.target.value;
+        setName(newName);
+
+        if (newName && !isValidName(newName)) {
+            setNameError("The name should be 2-30 characters long and can only contain English letters");
+        } else {
+            setNameError("");
+        }
+    };
+
+    //Email verification.
+    function isValidEmail(email) {
+        return email.includes("@") && email.includes(".");
+    }
+
+}
