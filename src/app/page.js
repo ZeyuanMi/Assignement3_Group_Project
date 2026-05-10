@@ -5,7 +5,7 @@ export default function Home() {
     <div style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#f4f4f4", minHeight: "100vh"}}>
 
 
-        <div style={{ backgroundColor: "#003580", padding: "12px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ backgroundColor: "#003580", padding: "60px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
                         <span style={{ color: "white", fontSize: "20px", fontWeight: "bold" }}>
                             Flight Booking System
@@ -18,7 +18,7 @@ export default function Home() {
 
 
 {/* Banner */}
-            <div style={{ backgroundColor: "#0057b8", padding: "60px 24px", textAlign: "center" }}>
+            <div style={{ backgroundColor: "#0057b8", padding: "346px 24px", textAlign: "center" }}>
                 <h1 style={{ color: "white", fontSize: "32px", marginBottom: "12px" }}>
                     Welcome to Flight Booking
                 </h1>
