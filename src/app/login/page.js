@@ -121,7 +121,38 @@ export default function LoginPage() {
         }
 
         //Verified successful, execute login logic
-        console.log("login information:", { name, email });
+        // Login request
+        const response = await fetch(
+
+            "/api/auth/login",
+
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json",
+                },
+
+                body: JSON.stringify({
+
+                    email,
+                    password,
+
+                }),
+            }
+        );
+
+        const data = await response.json();
+
+        alert(data.msg);
+
+// Login success
+        if (response.ok) {
+
+            router.push("/dashboard");
+
+        }
     };
 
     return (

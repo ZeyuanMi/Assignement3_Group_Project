@@ -19,6 +19,20 @@ export async function POST(req) {
 
     return NextResponse.json({ msg: 'Register success' }, { status: 201 });
   } catch (err) {
-    return NextResponse.json({ msg: 'Register failed' }, { status: 500 });
+
+      console.log(err);
+
+      return NextResponse.json(
+
+          {
+              msg: "Register failed"
+          },
+
+          {
+              status: 500
+          }
+
+      );
+
   }
 }
