@@ -11,8 +11,14 @@ export default function Home() {
                 Login
             </a>
 
-            <a href="/login" style={{ marginLeft:"120px",  fontSize: "18px", padding: "30px 65px", background: "red", color: "white", textDecoration: "none", borderRadius: "5px",fontFamily: "Georgia" }}>
+            <a href="/register" style={{ marginLeft:"120px",  fontSize: "18px", padding: "30px 65px", background: "red", color: "white", textDecoration: "none", borderRadius: "5px",fontFamily: "Georgia" }}>
                 Register
+            </a>
+        </div>
+
+        <div style={{ marginTop: "100px" }}>
+            <a href="/help" style={{   fontSize: "18px", padding: "30px 65px", background: "blue", color: "white", textDecoration: "none", borderRadius: "5px",fontFamily: "Georgia" }}>
+                Help
             </a>
         </div>
 
