@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
     return(
-    <div style={{ textAlign: "center", marginTop: "50px",border: "10px solid gray",backgroundColor: "white"}}>
+    <div style={{ textAlign: "center", marginTop: "50px",border: "10px solid gray",backgroundColor: "blue"}}>
 
         <h1>Flight Booking</h1>
 
