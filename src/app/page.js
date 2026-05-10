@@ -2,13 +2,17 @@ import Image from "next/image";
 
 export default function Home() {
     return(
-    <div style={{ textAlign: "center", marginTop: "50px",border: "10px solid gray",backgroundColor: "blue"}}>
+    <div style={{ textAlign: "center", marginTop: "50px",border: "10px solid gray",backgroundColor: "yellow"}}>
 
-        <h1>Flight Booking</h1>
+        <h1 style={{fontWeight: "bold", fontSize: "32px" }}>Flight Booking</h1>
 
-        <div style={{ marginTop: "30px" }}>
-            <a href="/login" style={{ margin: "40px", padding: "10px 20px", background: "red", color: "white", textDecoration: "none", borderRadius: "5px",fontFamily: "Georgia" }}>
+        <div style={{ marginTop: "200px" }}>
+            <a href="/login" style={{ marginRight:"120px",  fontSize: "18px", padding: "30px 65px", background: "red", color: "white", textDecoration: "none", borderRadius: "5px",fontFamily: "Georgia" }}>
                 Login
+            </a>
+
+            <a href="/login" style={{ marginLeft:"120px",  fontSize: "18px", padding: "30px 65px", background: "red", color: "white", textDecoration: "none", borderRadius: "5px",fontFamily: "Georgia" }}>
+                Register
             </a>
         </div>
 
