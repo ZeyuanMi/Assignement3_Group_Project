@@ -93,7 +93,7 @@ export default function LoginPage() {
 
 
     // Verify upon submission
-    const handleSubmit = (e) => {
+    const handleSubmit =  async (e) => {
         e.preventDefault();
 
         if (!name.trim()) {
