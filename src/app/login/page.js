@@ -109,7 +109,7 @@ export default function LoginPage() {
                     paddingBottom: "8px",
                 }}
             >
-                HOUSE APPLIANCE INVENTORY
+                LOGIN(Please enter your correct information)
             </h1>
 
             </div>
