@@ -8,3 +8,5 @@ const pool = mysql.createPool({
     password: "", //Login password (empty string here)
     database: "flight_booking",  //Name of the database to connect to
 });
+
+export default pool;
