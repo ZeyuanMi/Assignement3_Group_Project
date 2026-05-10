@@ -90,4 +90,28 @@ export default function LoginPage() {
         console.log("login information:", { name, email });
     };
 
-}
+    return (
+        <div
+            style={{
+                maxWidth: "500px",
+                margin: "40px auto",
+                padding: "20px",
+                border: "1px solid #000",
+                backgroundColor: "#fff",
+                fontFamily: "monospace",
+            }}>
+            <h1
+                style={{
+                    fontSize: "18px",
+                    fontWeight: "bold",
+                    marginBottom: "24px",
+                    borderBottom: "1px solid #000",
+                    paddingBottom: "8px",
+                }}
+            >
+                HOUSE APPLIANCE INVENTORY
+            </h1>
+
+            </div>
+            );
+        }
