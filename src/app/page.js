@@ -18,7 +18,11 @@ export default function Home() {
 
 
 {/* Banner */}
-            <div style={{ backgroundColor: "#0057b8", padding: "346px 24px", textAlign: "center" }}>
+
+            <div style={{ backgroundColor: "#0057b8", padding: "100px 24px", textAlign: "center" }}>
+                        </div>
+
+            <div style={{ backgroundColor: "#0057b8", padding: "10px 24px", textAlign: "center" }}>
                 <h1 style={{ color: "white", fontSize: "32px", marginBottom: "12px" }}>
                     Welcome to Flight Booking
                 </h1>
@@ -37,7 +41,18 @@ export default function Home() {
                                     Help
                                 </a>
 
+
+
+
             </div>
+
+            <div style={{ backgroundColor: "#0057b8", padding: "10px 24px", textAlign: "center" }}>
+            <p>2026 Flight Ticket Booking System</p>
+            </div>
+
+            <div style={{ backgroundColor: "#0057b8", padding: "214px 24px", textAlign: "center" }}>
+
+                        </div>
 
 
     </div>
