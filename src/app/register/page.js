@@ -378,6 +378,12 @@ export default function RegisterPage() {
                 </button>
 
             </form>
+            <p1></p1>
+            <p1></p1>
+            <p1></p1>
+            <button onClick={() => router.push("/")}>
+                Home
+            </button>
 
         </div>
     );
