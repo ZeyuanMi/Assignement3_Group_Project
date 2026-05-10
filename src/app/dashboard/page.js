@@ -76,7 +76,7 @@ export default function DashboardPage() {
 
                     {/* Book Flight */}
                     <button
-                        onClick={() => router.push("/book")}
+                        onClick={() => router.push("/dashboard/bookings")}
                         style={{
                             width: "220px",
                             height: "120px",
@@ -92,7 +92,7 @@ export default function DashboardPage() {
 
                     {/* My Tickets */}
                     <button
-                        onClick={() => router.push("/tickets")}
+                        onClick={() => router.push("/dashboard/myticket")}
                         style={{
                             width: "220px",
                             height: "120px",
@@ -108,7 +108,7 @@ export default function DashboardPage() {
 
                     {/* Profile */}
                     <button
-                        onClick={() => router.push("/profile")}
+                        onClick={() => router.push("/dashboard/flights")}
                         style={{
                             width: "220px",
                             height: "120px",

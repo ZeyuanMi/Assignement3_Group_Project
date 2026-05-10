@@ -48,6 +48,21 @@ export default function Flights() {
           </div>
         ))}
       </div>
+
+        <a
+            href="/dashboard"
+            style={{
+                padding: "10px 20px",
+                background: "#3b82f6",
+                color: "white",
+                textDecoration: "none",
+                borderRadius: "5px",
+                display: "inline-block"
+            }}
+        >
+            Back to dashboard
+        </a>
+
     </div>
   );
 }
