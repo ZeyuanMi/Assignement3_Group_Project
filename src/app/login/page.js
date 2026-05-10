@@ -146,7 +146,151 @@ export default function LoginPage() {
                 LOGIN(Please enter your correct information)
             </h1>
 
+            <form onSubmit={handleSubmit}>
+                {/* Name */}
+                <div style={{ marginBottom: "16px" }}>
+                    <label
+                        style={{
+                            display: "block",
+                            fontSize: "12px",
+                            fontWeight: "bold",
+                            marginBottom: "4px",
+                        }}
+                    >
+                        Name
+                    </label>
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={handleNameChange}
+                        style={{
+                            width: "100%",
+                            padding: "6px 8px",
+                            fontSize: "12px",
+                            border: "1px solid #000",
+                            borderRadius: "0",
+                            boxSizing: "border-box",
+                        }}
+                    />
+                    {nameError && (
+                        <div style={{ color: "red", fontSize: "10px", marginTop: "4px" }}>
+                            {nameError}
+                        </div>
+                    )}
+                    <div style={{ fontSize: "10px", color: "#666", marginTop: "4px" }}>
+                        Fill in this field with 2-15 strings that are not empty.
+                    </div>
+                </div>
 
+
+
+
+
+                {/* Email */}
+                <div style={{ marginBottom: "16px" }}>
+
+                    <label
+                        style={{
+                            display: "block",
+                            fontSize: "12px",
+                            fontWeight: "bold",
+                            marginBottom: "4px",
+                        }}
+                    >
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={handleEmailChange}
+                        placeholder="Enter your email"
+                        style={{
+                            width: "100%",
+                            padding: "6px 8px",
+                            fontSize: "12px",
+                            border: "1px solid #000",
+                            boxSizing: "border-box",
+                        }}
+                    />
+
+                    {emailError && (
+
+                        <div
+                            style={{
+                                color: "red",
+                                fontSize: "10px",
+                                marginTop: "4px"
+                            }}
+                        >
+                            {emailError}
+                        </div>
+
+                    )}
+
+                </div>
+
+
+
+
+
+                {/* Password */}
+                <div style={{ marginBottom: "16px" }}>
+
+                    <label
+                        style={{
+                            display: "block",
+                            fontSize: "12px",
+                            fontWeight: "bold",
+                            marginBottom: "4px",
+                        }}
+                    >
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={handlePasswordChange}
+                        placeholder="Enter password"
+                        style={{
+                            width: "100%",
+                            padding: "6px 8px",
+                            fontSize: "12px",
+                            border: "1px solid #000",
+                            boxSizing: "border-box",
+                        }}
+                    />
+
+                    {passwordError && (
+
+                        <div
+                            style={{
+                                color: "red",
+                                fontSize: "10px",
+                                marginTop: "4px"
+                            }}
+                        >
+                            {passwordError}
+                        </div>
+
+                    )}
+
+                </div>
+
+                <button
+                    type="submit"
+                    style={{
+                        padding: "10px 20px",
+                        backgroundColor: "blue",
+                        color: "white",
+                        border: "none",
+                        cursor: "pointer",
+                    }}
+                >
+                    Login
+                </button>
+            </form>
 
             </div>
             );
