@@ -9,4 +9,5 @@ const pool = mysql.createPool({
     database: "flight_booking",  //Name of the database to connect to
 });
 
+
 export default pool;
