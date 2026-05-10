@@ -1,7 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { NextResponse }
+    from "next/server";
+
+import pool
+    from "../../../../lib/db";
+
+import { comparePassword }
+    from "../../../../lib/auth";
 
 export default function LoginPage() {
 
