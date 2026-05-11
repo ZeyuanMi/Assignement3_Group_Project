@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SWD Assignment 3 – Flight Booking System
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+This project is a flight booking web application developed using Next.js and MySQL for the Server-Side Web Development module.
+
+The system allows users to register accounts, log in securely, view available flights, book tickets, manage bookings, and view personal profile information through a dashboard interface.
+
+The purpose of this project is to demonstrate full-stack web development concepts including frontend and backend integration, database connectivity, API routes, CRUD operations, authentication, and session management.
+
+---
+
+# Features
+
+- User Registration
+- User Login / Logout
+- Password Hashing with bcryptjs
+- Dashboard Navigation
+- Flight Booking System
+- My Tickets Page
+- User Profile Page
+- MySQL Database Integration
+- API Routes using Next.js
+- Form Validation
+- Session Storage
+
+---
+
+# Technologies Used
+
+- Next.js
+- React.js
+- Node.js
+- MySQL
+- JavaScript
+- HTML/CSS
+- bcryptjs
+
+---
+
+# Database Tables
+
+## users
+
+| Field | Description |
+|---|---|
+| id | User ID |
+| name | Username |
+| email | User email |
+| password | Encrypted password |
+| role | User role |
+
+## flights
+
+| Field | Description |
+|---|---|
+| id | Flight ID |
+| from_city | Departure city |
+| to_city | Destination city |
+| departure | Flight departure time |
+| price | Ticket price |
+| seats | Available seats |
+
+## bookings
+
+| Field | Description |
+|---|---|
+| id | Booking ID |
+| user_id | User reference |
+| flight_id | Flight reference |
+| created_at | Booking date |
+
+---
+
+# Installation
+
+## 1. Install dependencies
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+npm install
