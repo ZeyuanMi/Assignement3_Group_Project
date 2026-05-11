@@ -396,9 +396,11 @@ export default function RegisterPage() {
             <p1></p1>
             <p1></p1>
             <p1></p1>
-            <button onClick={() => router.push("/")}>
-                Home
-            </button>
+            <>
+                <button onClick={() => router.push("/")}>
+                    Home
+                </button>
+            </>
 
         </div>
     );
