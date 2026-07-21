@@ -12,33 +12,33 @@ The purpose of this project is to demonstrate full-stack web development concept
 
 # All Contributors
 
-- Zeyuan Mi (responsible for Backend / Database)
-- Yunlong Wang (responsible for Authentication + Frontend + Integration)
-- Haoyang Cui (responsible for UI/UX Improvement)
+- Zeyuan Mi
+- Yunlong Wang
+- Haoyang Cui
 
 ---
 
 # Team Contributions
 
-## Zeyuan Mi:
-### Contributions:
-- Backend API routes
-- MySQL design
-- CRUD operations
-- Database management
+### Zeyuan Mi
+Backend Developer
+- Designed backend architecture.
+- Implemented RESTful API routes.
+- Developed CRUD operations.
+- Managed database schema and SQL dump.
 
-## Yunlong Wang:
-### Contributions:
-- Authentication system
-- Login/Register pages
-- Database connection
-- Frontend integration
+### Yunlong Wang
+Full-stack Developer
+- Implemented authentication system including login, registration and logout.
+- Developed backend authentication logic and API routes.
+- Integrated MySQL database connection.
+- Designed frontend pages and user validation.
 
-## Haoyang Cui:
-### Contributions:
-- UI design improvement
-- Frontend styling optimization
-- User experience enhancement
+
+### Haoyang Cui
+Frontend UI Developer
+- Improved user interface design.
+- Optimized frontend layout and user experience.
 
 ---
 
