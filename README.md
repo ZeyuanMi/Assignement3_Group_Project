@@ -10,6 +10,38 @@ The purpose of this project is to demonstrate full-stack web development concept
 
 ---
 
+# All Contributors
+
+- Yunlong Wang
+- Zeyuan Mi
+- Haoyang Cui
+
+---
+
+# Contributions
+
+## Yunlong Wang:
+### Contributions:
+- Authentication system
+- Login/Register pages
+- Database connection
+- Frontend integration
+
+## Zeyuan Mi:
+### Contributions:
+- Backend API routes
+- MySQL design
+- CRUD operations
+- Database management
+
+## Haoyang Cui:
+### Contributions:
+- UI design improvement
+- Frontend styling optimization
+- User experience enhancement
+
+---
+
 # Features
 
 - User Registration
